@@ -6,8 +6,8 @@ import {
     integer,
     timestamp,
     time,
-} from 'drizzle-orm/pg-core'
-import { InferInsertModel } from 'drizzle-orm'
+} from 'drizzle-orm/pg-core';
+import { InferInsertModel } from 'drizzle-orm';
 
 export const users = pgTable(
     'users',
@@ -20,9 +20,9 @@ export const users = pgTable(
     (users) => {
         return {
             uniqueIdx: uniqueIndex('unique_idx').on(users.email),
-        }
+        };
     }
-)
+);
 
 export const sessions = pgTable('sessions', {
     id: serial('id').primaryKey(),
@@ -30,7 +30,7 @@ export const sessions = pgTable('sessions', {
         .references(() => users.id)
         .notNull(),
     expiresAt: timestamp('expires_at').notNull(),
-})
+});
 
-export type NewUser = InferInsertModel<typeof users>
-export type NewSession = InferInsertModel<typeof sessions>
+export type NewUser = InferInsertModel<typeof users>;
+export type NewSession = InferInsertModel<typeof sessions>;

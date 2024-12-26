@@ -1,15 +1,15 @@
-'use client'
+'use client';
 
-import { useActionState } from 'react'
-import { signup } from '@/app/auth/auth'
-import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
+import { useActionState } from 'react';
+import { signup } from '@/app/auth/auth';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 // *****   IF YOU ADD EXTRA JSX FOR useActionState(), It will not work! ******💥💥💥💥💥🦈🦈🚀🚀🚀
 
 export function SignupForm() {
-    const [state, action, pending] = useActionState(signup, undefined)
+    const [state, action, pending] = useActionState(signup, undefined);
 
     return (
         <form action={action}>
@@ -41,7 +41,7 @@ export function SignupForm() {
                         <p>Password must:</p>
                         <ul>
                             {state.errors.password.map((error) => (
-                                <li key={error}>- {error}</li>
+                                <li key={error}>{error}</li>
                             ))}
                         </ul>
                     </div>
@@ -55,5 +55,5 @@ export function SignupForm() {
                 </Button>
             </div>
         </form>
-    )
+    );
 }

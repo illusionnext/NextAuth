@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "push": "drizzle-kit push:pg",
+    "push": "drizzle-kit push --config drizzle.config.ts",
     "seed": "npx tsx be/seed.ts"
   },
   "dependencies": {

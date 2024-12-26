@@ -1,12 +1,12 @@
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import LogoutButton from './logout-button'
-import { PackageIcon } from '@/components/ui/icons'
-import { Input } from '@/components/ui/input'
-import Image from 'next/image'
-import Link from 'next/link'
-import { getUser } from '@/app/auth/dal'
-import React from 'react'
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import LogoutButton from './logout-button';
+import { PackageIcon } from '@/components/ui/icons';
+import { Input } from '@/components/ui/input';
+import Image from 'next/image';
+import Link from 'next/link';
+import { getUser } from '@/app/auth/dal';
+import React from 'react';
 
 const navLinks = [
     { title: 'Home', href: '/dashboard', badge: 0 },
@@ -14,16 +14,17 @@ const navLinks = [
     { title: 'Products', href: '#', badge: 0 },
     { title: 'Customers', href: '#', badge: 0 },
     { title: 'Analytics', href: '#', badge: 0 },
-]
+];
 
 export default async function Layout({
     children,
 }: {
-    children: React.ReactNode
+    children: React.ReactNode;
 }) {
-    const user = await getUser()
+    const user = await getUser();
+    console.dir(user); //CHANGE IT LATER💥🦈
 
-    const activeLink = '/dashboard'
+    const activeLink = '/dashboard';
 
     return (
         <div className="flex min-h-screen w-full">
@@ -110,5 +111,5 @@ export default async function Layout({
                 <main className="flex-1 p-4 md:p-6">{children}</main>
             </div>
         </div>
-    )
+    );
 }
